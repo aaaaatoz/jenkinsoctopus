@@ -5,7 +5,6 @@ pipeline {
 
   stages {
     stage('Checkout') {
-      print 'Checkout..'
       checkout scm
     }
     stage("Deploy") {
