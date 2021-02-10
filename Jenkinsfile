@@ -7,10 +7,8 @@ properties([
 def Version="1-1"
 
 node('master'){
-  agent any
   
-
-  stages {
+  try {
     stage('Checkout') {
       print 'Checkout..'
       checkout scm
@@ -20,5 +18,7 @@ node('master'){
         echo "Deploy!"
       '''
     }
+  } finally {
+    
   }
 }
