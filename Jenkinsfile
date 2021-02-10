@@ -13,6 +13,13 @@ node('master'){
       print 'Checkout..'
       checkout scm
     }
+    
+    stage('Setup Python Venv and Build macro'){
+      sh """
+        python3 -m venv venv
+        . venv/bin/activate
+        """
+    }
     stage("Deploy") {
       sh '''
         echo "Deploy!"
